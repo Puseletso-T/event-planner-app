@@ -43,18 +43,25 @@ const Dashboard = () => {
 
     return (
         <div className="container my-5 pt-5">
-            <h1 className="mb-4 text-center"> Welcome {user ? user.username : "Guest"}</h1>
+            <div className="text-center mb-4">
+                <h1 className="fw-bold">Welcome {user ? user.username : "Guest"} </h1>
+                <p className="text-muted"> Upcoming events</p>
+            </div>
 
             {/* Event list */}
-            <h2 className="mb-3">Upcoming Events</h2>
+
+
             {events.length === 0 ? (
-                <p>No events added yet. Go to <b>Add Event</b> to create one!</p>
+                <div className="alert alert-info text-center shadow-sm">
+                    No events added yet. Go to <b>Add Event</b> to create one!
+                </div>
             ) : (
-                <ul className="list-group">
+                <div className="list-group">
                     {events.map((event) => (
-                        <li
+                        <div
                             key={event.id}
-                            className="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row"
+                            className="list-group-item shadow-sm rounded mb-3 p-3 d-flex flex-column flex-md-row justify-content-between align-items-start"
+
                         >
                             {editingEventId === event.id ? (
                                 // Edit form
@@ -68,23 +75,27 @@ const Dashboard = () => {
                                         placeholder="Event Name"
                                         required
                                     />
-                                    <div className="d-flex gap-2 mb-2">
-                                        <input
-                                            type="date"
-                                            name="date"
-                                            value={editData.date}
-                                            onChange={handleEditChange}
-                                            className="form-control"
-                                            required
-                                        />
-                                        <input
-                                            type="time"
-                                            name="time"
-                                            value={editData.time}
-                                            onChange={handleEditChange}
-                                            className="form-control"
-                                            required
-                                        />
+                                    <div className="row g-2 mb-2">
+                                        <div className="col-md-6">
+                                            <input
+                                                type="date"
+                                                name="date"
+                                                value={editData.date}
+                                                onChange={handleEditChange}
+                                                className="form-control"
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <input
+                                                type="time"
+                                                name="time"
+                                                value={editData.time}
+                                                onChange={handleEditChange}
+                                                className="form-control"
+                                                required
+                                            />
+                                        </div>
                                     </div>
                                     <input
                                         type="text"
@@ -122,17 +133,18 @@ const Dashboard = () => {
                                 // Event display
                                 <>
                                     <div>
-                                        <h5>{event.name}</h5>
+                                        <h5 className="fw-bold">{event.name}</h5>
                                         <p className="mb-1">
-                                            {event.date} at {event.time} — {event.location}
+                                            {event.date} at {event.time} — {""}
+                                            <span className="fw-semibold">{event.location}</span>
                                         </p>
                                         {event.description && (
-                                            <p className="text-muted">{event.description}</p>
+                                            <p className="text-muted small">{event.description}</p>
                                         )}
                                     </div>
-                                    <div className="mt-2 mt-md-0">
+                                    <div className="mt-2 mt-md-0 d-flex gap-2">
                                         <button
-                                            className="btn btn-warning btn-sm me-2"
+                                            className="btn btn-warning btn-sm"
                                             onClick={() => handleEditEvent(event)}
                                         >
                                             Edit
@@ -146,9 +158,9 @@ const Dashboard = () => {
                                     </div>
                                 </>
                             )}
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
         </div>
     );

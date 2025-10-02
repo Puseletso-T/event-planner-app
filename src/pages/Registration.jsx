@@ -21,9 +21,9 @@ const Registration = () => {
             .required("Confirm Password is required"),
     });
     return (
-        <div className="vh-100 w-100 d-flex flex-column justify-content-center align-items-center bg-light text-center">
-            <div className="w-100 px-3" style={{ maxWidth: "500px" }}>
-                <h1 className="mb-3 display-4 fw-bold">Register</h1>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card shadow-sm p-4 w-100" style={{ maxWidth: "500px" }}>
+                <h1 className="mb-4 text-center fw-bold">Register</h1>
                 <Formik
                     initialValues={{ name: "", username: "", email: "", password: "", confirmPassword: "" }}
                     validationSchema={RegistrationSchema}

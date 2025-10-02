@@ -16,8 +16,8 @@ const Login = () => {
     });
 
     return (
-        <div className="vh-100 w-100 d-flex flex-column justify-content-center align-items-center bg-light text-center">
-            <div className="w-100 px-3" style={{ maxWidth: "500px" }}>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card shadow-sm p-4 w-100" style={{ maxWidth: "500px" }}>
                 <h1 className="mb-3 display-4 fw-bold">Event Planner</h1>
                 <Formik
                     initialValues={{ username: "", password: "" }}
