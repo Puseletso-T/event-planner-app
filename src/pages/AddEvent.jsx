@@ -33,7 +33,7 @@ const AddEvent = () => {
     return (
         <div className="container d-flex justify-content-center align-items-center my-5 pt-5">
             <div className="card shadow-sm p-4 w-100" style={{ maxWidth: "600px" }}>
-                <h1 className="mb-4 text-center fw-bold">Add New Event</h1>
+                <h1 className="mb-4 text-center fw-bold text-primary">Add New Event</h1>
                 <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
                     <input
                         type="text"

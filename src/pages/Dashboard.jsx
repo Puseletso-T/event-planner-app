@@ -44,7 +44,7 @@ const Dashboard = () => {
     return (
         <div className="container my-5 pt-5">
             <div className="text-center mb-4">
-                <h1 className="fw-bold">Welcome {user ? user.username : "Guest"} </h1>
+                <h1 className="fw-bold text-primary">Welcome {user ? user.username : "Guest"} </h1>
                 <p className="text-muted"> Upcoming events</p>
             </div>
 
@@ -135,7 +135,7 @@ const Dashboard = () => {
                                     <div>
                                         <h5 className="fw-bold">{event.name}</h5>
                                         <p className="mb-1">
-                                            {event.date} at {event.time} — {""}
+                                            {event.date} at {event.time} —{" "}
                                             <span className="fw-semibold">{event.location}</span>
                                         </p>
                                         {event.description && (
@@ -157,6 +157,7 @@ const Dashboard = () => {
                                         </button>
                                     </div>
                                 </>
+
                             )}
                         </div>
                     ))}

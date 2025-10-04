@@ -22,15 +22,15 @@ const Registration = () => {
     });
     return (
         <div className="container d-flex justify-content-center align-items-center vh-100">
-            <div className="card shadow-sm p-4 w-100" style={{ maxWidth: "500px" }}>
-                <h1 className="mb-4 text-center fw-bold">Register</h1>
+            <div className="card shadow-sm p-4 w-100 mx-auto" style={{ maxWidth: "500px" }}>
+                <h1 className="mb-4 text-center fw-bold text-primary">Register</h1>
                 <Formik
                     initialValues={{ name: "", username: "", email: "", password: "", confirmPassword: "" }}
                     validationSchema={RegistrationSchema}
                     onSubmit={(values) => {
                         console.log("Registration successful:", values);
                         alert(`Welcome ${values.name}! Your account has been created.`);
-                        navigate("/login"); //Redirects to login page on successful registration 
+                        navigate("/"); //Redirects to login page on successful registration 
                     }}
                 >
                     {() => (
@@ -60,9 +60,9 @@ const Registration = () => {
                     )}
                 </Formik>
 
-                <p className="mt-3">
+                <p className="mt-3 text-center">
                     Already have an account?{" "}
-                    <Link to="/login" className="text-decoration-none">Login here</Link>
+                    <Link to="/" className="text-decoration-none">Login here</Link>
                 </p>
             </div>
         </div>
